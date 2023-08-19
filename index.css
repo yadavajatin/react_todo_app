@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #29222A;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #3E3341;
+    width: 400px;
+    padding: 20px;
+}
+
+.header{
+    margin-bottom: 20px;
+}
+
+.header h1{
+    margin: 0;
+    padding: 0;
+    color:white;
+}
+
+.addTask{
+    display: flex;
+    width: 100%;
+    margin-bottom:15px;
+}
+
+.addTaskInput::placeholder{
+    color: rgba(255, 255, 255, 0.21);
+}
+
+
+.addTaskInput{
+    flex: 1 1;
+    padding: 5px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    border: 1px solid #332934;
+    background-color: #332934;
+    color: #dc6567;
+}
+
+.addTaskButton{
+    padding: 10px;
+    border-radius: 0 5px 5px 0;
+    background-color: #DC6567;
+    border: none;
+    cursor:pointer;
+    color: rgba(255, 255, 255, 0.83);
+}
+
+.taskListContainer{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.taskContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #332934;
+    padding: 10px 0;
+    border-radius:5px;
+    margin-bottom: 16px;
+}
+
+.task__btnInput{
+    display: flex;
+
+}
+
+.task__text{
+    margin-left: 10px;
+    color: white;
+}
+
+.task__deleteEdit{
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+
+
+}
+
+.task__button{
+
+    color: #DC6567;
+    cursor: pointer;
+}
+
+.task__button.delete{
+    margin-left: 5px;
+}
+
+input[type="checkbox"]{
+    accent-color: #dc6567;
+    transform: scale(140%);
+    margin-left: 16px;
+}

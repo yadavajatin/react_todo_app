@@ -116,3 +116,16 @@ input[type="checkbox"]{
     transform: scale(140%);
     margin-left: 16px;
 }
+
+.checked{
+    text-decoration: line-through;
+    color:#8c8c8c
+}
+
+.taskContainer.checked .task__deleteEdit{
+    visibility: hidden;
+}
+
+.taskContainer.checked .task__text{
+    color: #8c8c8c;
+}

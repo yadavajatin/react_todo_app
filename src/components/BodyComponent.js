@@ -9,10 +9,11 @@ const BodyComponent = () => {
     const [toggleButton, setToggleButton] = useState(true)
     const [inputValue, setInputValue] = useState("")
     const [currentTaskId, setCurrentTaskId] = useState(null)
+    const [checked, setChecked] = useState(false)
 
     useEffect(() => {
         const savedTasks = JSON.parse(localStorage.getItem("react-todo-list-app-data"))
-        if (savedTasks){
+        if (savedTasks) {
             setTasksList(savedTasks)
         }
     }, []);
@@ -20,22 +21,25 @@ const BodyComponent = () => {
     useEffect(() => {
         localStorage.setItem("react-todo-list-app-data", JSON.stringify(tasksList))
     }, [tasksList]);
+
+
     const addTaskFunction = (inputValue) => {
-        if(inputValue && !toggleButton){
+        if (inputValue && !toggleButton) {
             setTasksList(
                 tasksList.map((task) => {
-                    if (task.id === currentTaskId){
-                        return  {...task, value: inputValue}
+                    if (task.id === currentTaskId) {
+                        return {...task, value: inputValue}
                     }
                     return task
                 })
             )
             setInputValue("")
             setToggleButton(true)
-        }else {
+        } else {
             const newTask = {
                 id: nanoid(),
-                value: inputValue
+                value: inputValue,
+                isChecked: false,
             }
             const newArrForSavingTask = [...tasksList, newTask]
             setTasksList(newArrForSavingTask)
@@ -55,6 +59,17 @@ const BodyComponent = () => {
         setCurrentTaskId(id)
     }
 
+    const checkBoxFunction = (id) => {
+        const newTaskListAfterChecking = tasksList.map((task) => {
+            if (task.id === id) {
+                return {...task, isChecked: !task.isChecked}
+            }else{
+                return task
+            }
+        })
+        setTasksList(newTaskListAfterChecking)
+    }
+
     return (
         <>
             <div className="container">
@@ -67,6 +82,8 @@ const BodyComponent = () => {
 
                 />
                 <TasksListComponent
+                    checked={checked}
+                    checkBoxFunction={checkBoxFunction}
                     tasksList={tasksList}
                     deleteTaskFunction={deleteTaskFunction}
                     editTaskFunction={editTaskFunction}

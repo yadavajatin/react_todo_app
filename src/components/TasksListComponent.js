@@ -2,7 +2,7 @@ import {useState} from "react"
 import TaskComponent from './TaskComponent'
 import {nanoid} from 'nanoid'
 
-const TasksListComponent = ({tasksList, deleteTaskFunction, editTaskFunction}) => {
+const TasksListComponent = ({tasksList, deleteTaskFunction, editTaskFunction, checked, checkBoxFunction}) => {
 
 
 
@@ -14,8 +14,11 @@ const TasksListComponent = ({tasksList, deleteTaskFunction, editTaskFunction}) =
                         id={task.id}
                         value={task.value}
                         key={task.id}
+                        isChecked={task.isChecked}
                         deleteTaskFunction={deleteTaskFunction}
                         editTaskFunction={editTaskFunction}
+                        checked={checked}
+                        checkBoxFunction={checkBoxFunction}
                     />)
                 })}
             </div>
